@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPL Bayesian Predictor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-logo">IPL</div>
+          <div>
+            <h1>Bayesian Predictor</h1>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-btn active" data-screen="predict" type="button">Prediction</button>
+          <button class="nav-btn" data-screen="data" type="button">Show Data</button>
+        </nav>
+      </header>
+
+      <main class="content">
+        <section id="screen-predict" class="screen active">
+          <div class="panel">
+            <h2>Run prediction</h2>
+
+            <div class="controls-row">
+              <button id="initializeBtn" class="secondary-btn" type="button">Initialize variables</button>
+            </div>
+
+            <div id="initStatus" class="status-box info">Waiting for dataset...</div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="team1Select">Select Team 1</label>
+                <select id="team1Select">
+                  <option value="">Choose...</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="team2Select">Select Team 2</label>
+                <select id="team2Select">
+                  <option value="">Choose...</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="battingFirstSelect">Batting first</label>
+                <select id="battingFirstSelect" disabled>
+                  <option value="">Choose teams first</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="predict-actions">
+              <button id="predictBtn" class="primary-btn" type="button">Run model</button>
+            </div>
+
+            <div id="predictionResult" class="prediction-result empty">
+              No prediction yet.
+            </div>
+          </div>
+        </section>
+
+        <section id="screen-data" class="screen hidden">
+          <div class="panel">
+            <h2>Dataset preview</h2>
+            <div class="controls-row">
+              <button id="downloadCsvBtn" class="secondary-btn" type="button">Download CSV</button>
+            </div>
+
+            <div class="data-section">
+              <h3>Demo data</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead id="dataTableHead"></thead>
+                  <tbody id="dataTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="data-section">
+              <h3>Probability values</h3>
+              <div id="dataProbabilityList" class="probability-list"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
